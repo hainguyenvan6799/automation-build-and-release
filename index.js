@@ -14,8 +14,9 @@ async function main() {
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
   // 1. Get the current version
-  const {version: newVersion} = __non_webpack_require__(pathJoin(core.getInput('path'), 'package.json'));
+  const {version: newVersion, name} = __non_webpack_require__(pathJoin(core.getInput('path'), 'package.json'));
   core.info(`New version: ${newVersion}`);
+  core.info(`Name: ${name}`);
 
   // 2. Get the latest release version and hash
   // We'll use the version for deciding whether or not we need to create
@@ -96,7 +97,7 @@ async function main() {
       core.setOutput('upload_url', data.upload_url);
       core.setOutput('release_id', data.id);
       core.setOutput('release_tag', data.tag_name);
-      core.setOutput('release_name', `${repo}v${data.name}`);
+      core.setOutput('release_name', `${repo}-${data.name}`);
       core.info(`upload_url: ${data.upload_url}`);
       core.info(`release_name: ${data.name}`);
       core.info(`release_tag: ${data.tag_name}`);
