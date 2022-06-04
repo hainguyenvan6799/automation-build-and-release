@@ -87,7 +87,6 @@ async function main() {
         name: newVersion,
         target_commitish: process.env.GITHUB_SHA,
         body: changeLog,
-        
       });
       // What output should we provide?
       // https://docs.github.com/en/rest/reference/repos#get-a-release
@@ -100,6 +99,7 @@ async function main() {
       core.setOutput('release_name', data.name);
       core.info(`upload_url: ${data.upload_url}`);
       core.info(`release_name: ${data.name}`);
+      core.info(`release_tag: ${data.tag_name}`);
     } catch (error) {
       core.setFailed(`Failed to create release ${newVersion} for ${owner}/${repo}#${process.env.GITHUB_SHA}`);
       core.error(error);
