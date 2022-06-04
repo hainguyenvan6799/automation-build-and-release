@@ -96,7 +96,7 @@ async function main() {
       core.setOutput('upload_url', data.upload_url);
       core.setOutput('release_id', data.id);
       core.setOutput('release_tag', data.tag_name);
-      core.setOutput('release_name', data.name);
+      core.setOutput('release_name', `${repo}v${data.name}`);
       core.info(`upload_url: ${data.upload_url}`);
       core.info(`release_name: ${data.name}`);
       core.info(`release_tag: ${data.tag_name}`);
