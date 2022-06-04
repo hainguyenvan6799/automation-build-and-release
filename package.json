@@ -1,0 +1,18 @@
+{
+  "name": "github-action-npm-release",
+  "version": "1.0.0",
+  "description": "Automatically generate a release when the package.json version changes",
+  "scripts": {
+    "build": "npm i && ncc build index.js --minify --out lib -e package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hai Nguyen Van",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "1.2.4",
+    "@octokit/rest": "18.0.3"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.23.0"
+  }
+}
