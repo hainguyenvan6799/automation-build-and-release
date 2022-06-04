@@ -27,4 +27,4 @@ outputs:
     description: 'Name of the release.'
 runs:
   using: 'node12'
-  main: 'lib/index.js'
+  main: 'build/index.js'

@@ -99,6 +99,7 @@ async function main() {
       core.setOutput('release_tag', data.tag_name);
       core.setOutput('release_name', data.name);
       core.info(`upload_url: ${data.upload_url}`);
+      core.info(`release_name: ${data.name}`);
     } catch (error) {
       core.setFailed(`Failed to create release ${newVersion} for ${owner}/${repo}#${process.env.GITHUB_SHA}`);
       core.error(error);
