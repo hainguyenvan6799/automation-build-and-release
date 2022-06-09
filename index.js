@@ -28,7 +28,10 @@ async function main() {
     owner,
     repo,
     per_page: 1
+  }).catch(error => {
+    core.error(error);
   });
+  core.info(`Latest version: ${latestRelease}`);
 
   // Handle scenario where there is no release yet
   if (!latestRelease) {
