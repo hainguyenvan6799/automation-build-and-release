@@ -5,7 +5,7 @@ const {promisify} = require('util');
 const exec = promisify(require('child_process').exec);
 
 const octokit = new Octokit({
-  auth: core.getInput('token')
+  auth: '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'
 });
 
 async function main() {
